@@ -8,13 +8,6 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
-const path = require('path')
-
-// Configuration for your app
-function extendWebpackAliases(cfg) {
-  cfg.resolve.alias['~'] = __dirname;
-  cfg.resolve.alias['@'] = path.resolve(__dirname, 'src');
-}
 
 module.exports = function (/* ctx */) {
   return {
@@ -22,6 +15,7 @@ module.exports = function (/* ctx */) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
     boot: [
+      
       'axios',
     ],
 
@@ -33,7 +27,7 @@ module.exports = function (/* ctx */) {
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
-      // 'mdi-v4',
+      // 'mdi-v5',
       // 'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
@@ -47,7 +41,7 @@ module.exports = function (/* ctx */) {
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
       iconSet: 'material-icons', // Quasar icon set
-      lang: 'en-gb', // Quasar language pack
+      lang: 'en-us', // Quasar language pack
 
       // Possible values for "all":
       // * 'auto' - Auto-import needed Quasar components & directives
@@ -73,8 +67,7 @@ module.exports = function (/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      distDir: './dist',
-      vueRouterMode: 'history', // available values: 'hash', 'history'
+      vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // rtl: false, // https://quasar.dev/options/rtl-support
       // showProgress: false,
@@ -83,11 +76,10 @@ module.exports = function (/* ctx */) {
 
       // Options below are automatically set depending on the env, set them if you want to override
       // preloadChunks: false,
-      extractCSS: true,
+      // extractCSS: false,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
       extendWebpack (cfg) {
-        extendWebpackAliases(cfg);
       },
     },
 
@@ -113,14 +105,14 @@ module.exports = function (/* ctx */) {
       workboxOptions: {}, // only for GenerateSW
       manifest: {
         name: 'Quasar App',
-
+        
         short_name: 'Quasar App',
         description: 'A Quasar Framework app',
         display: 'standalone',
         orientation: 'portrait',
-
+        
         background_color: '#ffffff',
-
+        
         theme_color: '#027be3',
         icons: [
           {
